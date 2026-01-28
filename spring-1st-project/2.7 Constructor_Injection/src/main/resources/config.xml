@@ -36,5 +36,6 @@
 <!--        <constructor-arg name="laptop" ref="lap"></constructor-arg>-->
 <!--        <constructor-arg name="age" value="28"></constructor-arg>-->
 <!--    </bean>-->
+        <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop" primary="true"/>
 
 </beans>
