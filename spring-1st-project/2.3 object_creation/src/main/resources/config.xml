@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien"></bean>
+    <bean id="alien2" class="org.springframeworkxmlbasedconfig.Alien"></bean>
+
+    <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop"></bean>
+
+
+</beans>
+
+        <!--
+        After adding the laptop bean two objects are created. Object created for alien and laptop object created for laptop.So it depends upon how many beans you mention here.
+        Those many objects will create
+
+        If we specify another alien tag. Whether it will create the two objects? Answer is Yes. So it depends upon how many beans you mention here
+        Those many objects will create.So if you mention two beans with two different IDs for the same class, it will create two objects
+
+        So one more thing id is optional even if we don't mention ID it still creates the object. But the question is if we don't have an ID here, how will you refer that here.
+        Alien alien = (Alien) context.getBean("alien"). Because when we say get bean you have to mention the ID.
+         -->
