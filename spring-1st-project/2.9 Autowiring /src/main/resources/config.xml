@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    For the Autowiring and Interface Based Object Passing we are using Property not the constructor args-->
+<!--    // 1st solution It works-->
+<!--        <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">-->
+<!--            <property name="age" value="28"></property>-->
+<!--            <property name="comp" ref="desk"></property>-->
+<!--        </bean>-->
+
+<!--    <bean id="alien2" class="org.springframeworkxmlbasedconfig.Alien"></bean>-->
+<!--    <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop"></bean>-->
+<!--    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>-->
+
+
+<!--   2nd test - what if we mention the same name and ref both are same-->
+<!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">-->
+<!--        <property name="age" value="28"></property>-->
+<!--        <property name="comp" ref="comp"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="comp" class="org.springframeworkxmlbasedconfig.Laptop"></bean>-->
+<!--    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>-->
+    <!--    It works. Here the output will be Compiling in Laptop because it takes from Laptop-->
+
+
+    <!--3rd Test - So basically when we specify this, we are creating a wire, or we have a wire between your alien and a laptop.
+    But what if I want this wiring to be done automatically, something like autowire and that's possible by name.Now you're saying to spring,
+    I want to go for auto wire and try to link them with the help of their names. Actually it is checking with the name  comp (private Computer comp;) -->
+<!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byName">-->
+<!--        <property name="age" value="28"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="comp" class="org.springframeworkxmlbasedconfig.Laptop"></bean>-->
+<!--    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>-->
+
+    <!--4th Test - Instead of using byName we can also use called byType-->
+<!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byType">-->
+<!--        <property name="age" value="28"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="comp" class="org.springframeworkxmlbasedconfig.Laptop"></bean>-->
+<!--    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>-->
+
+    <!-- 5th Test - byType cannot work with both checks. It throws error which says expected single matching bean.
+    But found two because both the beans are have the same type. They have laptop and desktop which are both of type of computer.that's the confusion-->
+<!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byType">-->
+<!--        <property name="age" value="28"></property>-->
+<!--    </bean>-->
+    <!--    <bean id="comp" class="org.springframeworkxmlbasedconfig.Laptop"></bean>-->
+<!--    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>-->
+
+
+
+    <!-- 6th Test - Because with the help of auto wire, you should go for desktop because the name is com here.
+    But since we are explicitly mentioning we are going for desk, it will prefer your property instead of going for auto wire.
+    So auto wire works only when you don't have this property mentioned. So when you don't mention this it will prefer auto wiring.
+    As in the alien we have mentioned comp obj for computer based on the name actually it has to go to Laptop as we're explicitly
+    mentioning the Desktop that's why it's printing as Compiling in Desktop....
+    That means Autowiring works only if we didn't mention the property tag
+    -->
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byName">
+            <property name="age" value="28"></property>
+<!--            <property name="comp" ref="desk"></property>-->
+        <property name="comp" ref="desk"></property>
+        </bean>
+
+        <bean id="comp" class="org.springframeworkxmlbasedconfig.Laptop"></bean>
+        <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop"></bean>
+        <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop"/>
+
+</beans>
