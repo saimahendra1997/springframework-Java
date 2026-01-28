@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    Lazy Initialization bean-->
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byType">
+        <property name="age" value="28"/>
+        <property name="comp" ref="lap"/>
+    </bean>
+    <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop" primary="true"/>
+    <bean id="desk" class="org.springframeworkxmlbasedconfig.Desktop" lazy-init="true"/>
+<!--    If we look at this even though we are referring to lap object it has to print the Laptop Object got created because we are not using the desktop object-->
+<!--    If we see the o/p. The objects got created for all the beans even though we are not using-->
+<!--    Alien Object Created...-->
+<!--    Desktop Objected Created...-->
+<!--    Laptop Object Created...-->
+<!--    let's say I have a requirement that I don't want to load the desktop object by default.So the moment you run the container, I don't want this object to be created.-->
+<!--    I want this object to be created only when you call it for the first time.To achieve this just go to the bean definition, you can see there is one of the property called lazy-init="true"
+        After adding that o/p is Alien Object Created...-->
+
+    <!--    Desktop Objected Created...
+    Only when you want to use it, it will be created.That means in Main.java if we specify it explicitly -    Desktop desktop = (Desktop) context.getBean("desk");
+    then it will create the desktop object. It is still singleton, but then it will be created only when you want it.
+    In prototype, the object gets created only when you ask for it, because you create new object every time you request for it.
+    In this scenario, it will also create the object when you want it, but it will be still singleton.
+
+    There is a scenario that alien is dependent on desk as we are seeing that desk is lazy as we know that It will be called only when it is required.
+    even if we comment this line // Desktop desktop = (Desktop) context.getBean("desk");. Here we can see that desk is lazy and alien is eager. The question here is
+    will the object got created?if you run this code you can see it will say desktop object created. So when you have a non-lazy bean dependent on a lazy-bean,
+    still it will create the object of a lazy-bean because someone wants it.
+
+    Why to make bean lazy? - Because in your project we will be having hundreds of beans.Just for an ex, if we have hundreds of beans and if we make every bean as non-lazy by default,
+    which is eager, it will. When we are loading the application, it will create object of all those hundred beans. Do we really want those beans?
+    That's the question you have to ask. So of course this is something you have to decide as a developer.
+    -->
+
+</beans>
