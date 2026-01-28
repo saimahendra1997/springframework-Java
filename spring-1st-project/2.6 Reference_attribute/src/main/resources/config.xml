@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" scope="prototype"></bean>
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">
+        <!-- DI for the primitive variable -->
+        <property name="age" value="28"></property>
+        <!-- DI for the lap reference  -->
+        <property name="laptop" ref="lap1"></property>
+        <!-- we need to autowire with this id <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop"></bean>
+        So basically we have to create that wire between the alien and the laptop.
+        So what we have done is we have injected a value or the reference with the help of a reference attribute.
+        So in this alien we got two properties.To assign the values for primitive we can use value and for the reference we have to use reference
+        Now we do got two objects here lap2 and lap2.So do different IDs and whatever ID you mention here that will be referred.
+        So even if you have multiple objects of laptop, this ID(ref="lap1")differentiate all the objects.-->
+    </bean>
+
+    <bean id="lap1" class="org.springframeworkxmlbasedconfig.Laptop"></bean>
+    <bean id="lap2" class="org.springframeworkxmlbasedconfig.Laptop"></bean>
+
+</beans>
