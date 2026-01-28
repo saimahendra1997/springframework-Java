@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Inner Bean
+        the only purpose of this laptop being here is to have it reference to the alien. Because alien is dependent on a computer and the implementation for computer is laptop
+          What we are doing is we are getting this bean lap, and then we are referring here and it works. But that also means that this particular laptop bean is available for the entire application.
+          So any other bean it can be a human, or it can be a car can use this instance of laptop. We just have to refer that. But what if we don't want to do that?
+          What if I just want to limit this particular bean only for the alien. We can do that. So basically what I'm doing is I'm creating a comp as property name,
+          and then I'm creating this bean inside the property tag. So this bean here is basically an inner bin for the alien. So this alien is an outer bin.
+          That means this can be used only by the alien not from the outside.-->
+        <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" autowire="byType">
+        <property name="age" value="28"/>
+            <property name="comp">
+                <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop" primary="true"/>
+            </property>
+        </bean>
+
+</beans>
