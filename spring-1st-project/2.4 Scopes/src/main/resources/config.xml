@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" scope="prototype"></bean>
+<!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien" scope="singleton"/>-->
+
+    <bean id="alien2" class="org.springframeworkxmlbasedconfig.Alien">
+    </bean>
+
+    <bean id="lap" class="org.springframeworkxmlbasedconfig.Laptop">
+    </bean>
+    <!-- But what if you want every time you say get bean, it should create a new object. Now for that you have to change something and that change is a scope.
+    Now in the bean there is one more attribute we can add which is called scope. Now there are different scopes available.By default, it will be singleton.
+    So if you mention singleton it will behave the same way it was behaving before.But if you want a different object created every time you say get bean,
+     you can use something called a prototype. Now when you say prototype, it will create new object every time you say get bean.-->
+
+</beans>
+
+        <!--
+        // Scopes
+        So by default it follows singleton which means in your application for this alien there will be only one object created.
+        So it doesn't matter how many times you call them. So even if you say getBean thousands of times, it will refer to the same object is because
+        we get it Only one object here which is alien1, and we are calling it here.
+
+        But what if we want two objects every time you say getBean, it should create a new object. Now for that you have to change something called a scope.
+        Now in the bean there is one more attribute we can add which is called scope.
+
+        One more interesting thing, if you comment the entire code here and if you run this line - ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        We only get the output printed is - Laptop Object Created.
+        we can see we have not got any object for alien is because when you create this container, it will load this config.XML file.
+        It will check for the beans, and we'll be saying, hey, we do have a bean here for alien, right? Why it is not getting the object.
+        It's because now the scope is prototyped. So when the scope is singleton, it will create the object by default
+        So the moment we load the application, it will load the container, and you will get the object. Because singleton object will be created when the container is loading or has loaded.
+
+         -->
