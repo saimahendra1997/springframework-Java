@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">-->
+    <!--     I don't want to use the property tag now. So when I use property tag basically it uses the setter.We have to use something called a constructor-arg;-->
+    <!--        <constructor-arg value="28"></constructor-arg>-->
+    <!--        <constructor-arg ref="lap"></constructor-arg>-->
+    <!--    </bean>-->
+
+    <!--   1st  way of Constructor argument checking by type. because it was even not checking the type, it was checking the sequence.-->
+    <!--    It works only if we have 2 different types. There is an issue if we have same type with one more parameter-->
+    <!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">-->
+    <!--    I don't want to use the property tag now. So when I use property tag basically it uses the setter.We have to use something called a constructor-arg;-->
+    <!--        <constructor-arg type="org.springframeworkxmlbasedconfig.Laptop" ref="lap"></constructor-arg>-->
+    <!--        <constructor-arg type="int" value="28"></constructor-arg>-->
+    <!--    </bean>-->
+
+    <!--// This can be solved by using index or by names-->
+    <!--    <bean id="alien1" class="org.springframeworkxmlbasedconfig.Alien">-->
+    <!--        I don't want to use the property tag now. So when I use property tag basically it uses the setter.We have to use something called a constructor-arg-->
+    <!--            If we use index no need to follow the sequence again-->
+    <!--        <constructor-arg index="1" ref="lap"></constructor-arg>-->
+    <!--        <constructor-arg index="0" value="28"></constructor-arg>-->
+
+    <!--        If we use name we have to follow the sequence-->
+    <!--        Again if we want to use the name properties and don't want to follow the sequence we have to annotate the constructor with @ConstructorProperties({"age", "laptop"})-->
+    <!--        <constructor-arg name="laptop" ref="lap"></constructor-arg>-->
+    <!--        <constructor-arg name="age" value="28"></constructor-arg>-->
+    <!--    </bean>-->
+
+</beans>
