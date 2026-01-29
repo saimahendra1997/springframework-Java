@@ -2,7 +2,9 @@ package org.springframeworkxmlbasedconfig.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframeworkxmlbasedconfig.Desktop;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
     // This is going to replace xml config. So if we want to make this work, the first thing you will do is you will use an annotation which is called @Configuration.
