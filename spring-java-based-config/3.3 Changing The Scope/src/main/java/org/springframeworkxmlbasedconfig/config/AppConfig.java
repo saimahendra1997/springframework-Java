@@ -6,7 +6,7 @@ import org.springframeworkxmlbasedconfig.Desktop;
 
 public class AppConfig {
 
-    // This is going to replace xml config
+    // This is going to replace xml config. So if we want to make this work, the first thing you will do is you will use an annotation which is called @Configuration.
     // if we want to change the name of the bean we have to mention after @Bean (name = "com2"); we have to use name attribute
     // We can also use multiple words if we want
 //    @Bean(name = "com2")
