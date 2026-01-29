@@ -9,7 +9,9 @@ import org.springframeworkxmlbasedconfig.Alien;
 import org.springframeworkxmlbasedconfig.Computer;
 import org.springframeworkxmlbasedconfig.Desktop;
 import org.springframeworkxmlbasedconfig.Laptop;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
     // This is going to replace xml config
