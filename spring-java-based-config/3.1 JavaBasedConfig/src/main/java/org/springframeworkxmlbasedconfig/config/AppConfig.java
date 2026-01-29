@@ -5,7 +5,7 @@ import org.springframeworkxmlbasedconfig.Desktop;
 
 public class AppConfig {
 
-    // This is going to replace xml config
+    // This is going to replace xml config. So if we want to make this work, the first thing you will do is you will use an annotation which is called @Configuration.
     @Bean
     public Desktop desktop() {
         return new Desktop();
