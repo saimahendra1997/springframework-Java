@@ -1,0 +1,33 @@
+package org.springbootweb;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // If we want to build the dynamic web application, that's where we need a back end programming and one of it is Java.
+        // Every time we get a request from the client, and it goes to the server, which will accept the request, process the request and gives back to the client.
+        // Now when you say give back something to the client. Nowadays, we are talking about only the data.
+        // Maybe it is possible that the front end which we are building for a web, it is done with the help of React, Angular or a Vanilla.JS.
+        // Important is the back end will send the JSON data to the client And what if client wants to send some data? Of course client can send data in the JSON format.
+        // Basically What we get from the server is the data that means we have to generate that data from the server.
+        // Maybe this data is coming from the database or this data is coming from some other server right. Basically all this data passing and happening with the help of JSON data.
+
+        // Now question arises how do we build this server in Java and for that we have to use something called Servlets.
+        // As the name suggests we have serve and let.So basically these are the components the server components which will process and in fact it will accept the request
+        // and process the request. It will send data back to the client.Now basically to run these servlets we can't simply run our servlets on JVM
+        // now to run these servlets. since it has some extra features that getting the request from the internet and then responding back, we have to use a special container called a Servlet Container.
+        // Or you can say a Web Container.So one of the best option or the lightweight option we got is Tomcat. Now Tomcat is a server in which we can run your servlets.
+        // So ultimately, if we want to build the back end where we're accepting requests from the client, that's where we need a Servlet. But then if we want to use spring there,
+        // spring will make sure that we are doing it in an easy format. Ultimately, spring will also work with servlet behind the scene.
+
+        // Working with servlets
+        //  As we discussed, if we want to run our servlet, we need a container, which is our Tomcat server.
+        // Now there are two options here. So what we can do is we can build our application in Java and wanted to run that on a server,
+        // what we do is you create a package of it.with the extension .WAR which is the web archive.If we're building a console application, we can use .jar.
+        // But if we want to make a web application, you use .war because it runs on Tomcat.we can also create jar which you can directly run.
+        // But the important thing is we have to create a package of our project and put that on a Tomcat server so that we can run it.
+        // webapps is a folder where you put your project.(So if we create a project, and created a package of it, put that into webapps).
+        // And if we want to start our Tomcat, we can see in the bin folder,files called startup.sh and shutdown.sh.
+        // If we dont want this extra configuration we can use Embedded Tomcat.So the advantage is you don't have to do all this configuration.
+
+    }
+}
