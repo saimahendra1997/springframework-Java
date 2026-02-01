@@ -28,6 +28,5 @@ public class DemoServlet extends HttpServlet {
     // Create the object of tomcat in Mian.java and call start() where the tomcat has started
     public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("Service Method called");
-        response.getWriter().println("Hello from servlet!");
     }
 }
