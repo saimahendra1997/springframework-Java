@@ -157,6 +157,8 @@ public class HelloController {
         int result = val1 + val2;
         model.addAttribute("num1", val1);
         model.addAttribute("num2", val2);
+        model.addAttribute("operation", "Addition");
+        model.addAttribute("result", result);
         model.addAttribute("error", null); // Clear any previous error
         return "result"; // removing .jsp extension and moving the view pages to views directory
     }
