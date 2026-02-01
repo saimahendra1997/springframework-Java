@@ -1,0 +1,103 @@
+/* Perfect CSS for a Clean, Modern UI */
+/* This enhances the previous CSS with better spacing, centering, typography, and subtle effects for a professional, responsive look. */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack for readability */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Subtle gradient background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height for centering */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    border: 1px solid #ecf0f1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover effects */
+}
+
+button:hover {
+    background-color: #229954;
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    form {
+        padding: 20px;
+    }
+}
