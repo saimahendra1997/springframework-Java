@@ -47,7 +47,7 @@ public class HelloController {
     public String resultPage(HttpServletRequest request) {
         int num1 = Integer.parseInt(request.getParameter("num1"));
         int num2 = Integer.parseInt(request.getParameter("num2"));
-        String result = request.getParameter("result");
+        int result = Integer.parseInt(request.getParameter("result"));
         return "result.jsp";
     }
 
