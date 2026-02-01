@@ -56,6 +56,8 @@ public class Main {
         // And then we have to mention the directory structure. Here we are not creating so mentioning null.Uh so we are keeping it empty for the default.
         // And we don't want to create a new directory structure. we'll keep it null.
 
+        tomcat.getConnector(); // In embedded Tomcat 10+, the HTTP connector is not initialized implicitly.
+        // We must explicitly create it using tomcat.getConnector(), otherwise the server starts without binding to a port.
         Context context = tomcat.addContext("", null);
         // Now once we got the hold on the context object, now we can use a method called addServlet which is a static method belongs to Tomcat class.
         // We have to pass 3 parameters 1st is context object, 2nd one is servlet name and 3rd one is object for the servlet
