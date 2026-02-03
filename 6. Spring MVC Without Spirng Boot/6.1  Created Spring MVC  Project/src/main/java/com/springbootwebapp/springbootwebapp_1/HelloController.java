@@ -96,8 +96,9 @@ public class HelloController {
         return "alienindex";  // Alien form
     }
 
-    @RequestMapping("addAlien")
-    public String addAlien(@ModelAttribute Alien alien) {
+    @RequestMapping("addAlien") 
+    public String addAlien(@ModelAttribute Alien alien, Model model) {
+        model.addAttribute("newAlien", alien);  // Add the alien to the model
         return "alienresult";
         // For viewing JSP Calculator - http://localhost:8080/
         // For viewing Alien Homepage - Navigate to - http://localhost:8080/alien
