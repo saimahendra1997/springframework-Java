@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:ctx="http://www.springframework.org/schema/context"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		
+	    <!-- Enable component scanning for controllers (fix package mismatch) -->
+	    <ctx:component-scan base-package="com.springmvcdemo" />
+	    <!-- Enable annotation-driven MVC -->
+	    <mvc:annotation-driven />
+</beans>
+
+<!-- 
+
+	Here we have to do the configuration we don't have to actually manually mention each controller.
+	the Reason being we are using annotations in the class by saying @Controller and doing the mapping 
+	by specifying @RequestMapping. But what if we don't want to do mapping in the controller or in the class?
+	In that case, in this particular file we have to do all the mapping by specifying for this request call this particular method
+	like that.As we are already using annotations so we just have to mention to our DispatcherServlet by saying, 
+	we're already using annotations on the controllers.Just use them directly
+	
+	The way we can mention by saying firstly hey DispatcherServlet find the classes in this package and secondly we have to mention
+	we are already suing annotations. We have to define those tags which are defined in bean definition(bean-tags)
+	After mentioning the bean tags we can talk to DispatcherServlet.The first thing we can mention is component-scan(<ctx:component-scan base-package="springmvcdemo" />)
+	and secondly we have to specify that we are using annotations for that we have to use <ctx:annotation-config/>
+	
+	After we run this we will be getting an error saying that - No endpoint GET /springmvcdemowithoutspringboot/index.
+
+	At this point, the configuration will successfully call the controller, but there may be errors regarding view rendering. 
+	To resolve view-related errors, we need configure the Internal Resource View Resolver to correctly map views (e.g., JSP files).
+	
+	Remember when we were worked with the spring boot application, We are returning index there, but in the property files we have mentioned
+	that we have to find the index in this particular folder and we have to find and the extension for that index is .jsp.
+	Here Nowhere we are doing that. So that means we have to also configure the resolver.Earlier we have discussed that when we return 
+	this behind the scene it uses something called a resolver which is called internal resource view resolver.
+
+-->
