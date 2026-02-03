@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.springmvcwithoutspringboot</groupId>
+  <artifactId>springmvcdemowithoutspringboot</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springmvcdemowithoutspringboot Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-jasper</artifactId>
+		<version>11.0.15</version>
+		<scope>compile</scope>
+	</dependency>
+	<!-- JSTL API for Jakarta EE -->
+	<dependency>
+		<groupId>jakarta.servlet.jsp.jstl</groupId>
+		<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+		<version>3.0.0</version>
+	</dependency>
+        <!-- Need to add 3 dependencies(Spring Web MVC)-->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>7.0.3</version>
+	    <scope>compile</scope>
+	</dependency>
+  </dependencies>
+  <build>
+    <finalName>springmvcdemowithoutspringboot</finalName>
+  </build>
+</project>
