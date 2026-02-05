@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:ctx="http://www.springframework.org/schema/context"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		
+	    <!-- Enable component scanning for controllers (fix package mismatch) -->
+	    <ctx:component-scan base-package="com.springmvcdemo" />
+	    <!-- Enable annotation-driven MVC -->
+	    <mvc:annotation-driven />
+	     <!-- View Resolver for JSPs (required since you're returning view names like "index") -->
+	    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <property name="prefix" value="/views/" />
+	        <property name="suffix" value=".jsp" />
+	    </bean>
+	    
+	    <!-- NEW: Static Resource Handling (e.g., CSS, JS, images) -->
+	    <mvc:resources mapping="/css/**" location="/css/" />
+</beans>
+
+<!-- 
+
+	Here we have to do the configuration we don't have to actually manually mention each controller.
+	the Reason being we are using annotations in the class by saying @Controller and doing the mapping 
+	by specifying @RequestMapping. But what if we don't want to do mapping in the controller or in the class?
+	In that case, in this particular file we have to do all the mapping by specifying for this request call this particular method
+	like that.As we are already using annotations so we just have to mention to our DispatcherServlet by saying, 
+	we're already using annotations on the controllers.Just use them directly
+	
+	The way we can mention by saying firstly hey DispatcherServlet find the classes in this package and secondly we have to mention
+	we are already suing annotations. We have to define those tags which are defined in bean definition(bean-tags)
+	After mentioning the bean tags we can talk to DispatcherServlet.The first thing we can mention is component-scan(<ctx:component-scan base-package="springmvcdemo" />)
+	and secondly we have to specify that we are using annotations for that we have to use <ctx:annotation-config/>
+	
+	After we run this we will be getting an error saying that - No endpoint GET /springmvcdemowithoutspringboot/index.
+
+	At this point, the configuration will successfully call the controller, but there may be errors regarding view rendering. 
+	To resolve view-related errors, we need configure the Internal Resource View Resolver to correctly map views (e.g., JSP files).
+	
+	Remember when we were worked with the spring boot application, We are returning index there, but in the property files we have mentioned
+	that we have to find the index in this particular folder and we have to find and the extension for that index is .jsp.
+	Here Nowhere we are doing that. So that means we have to also configure the resolver.Earlier we have discussed that when we return 
+	this behind the scene it uses something called a resolver which is called internal resource view resolver.
+	
+	
+	To Configure the view resolver we have to mention the qualified path, which is the full path for the class.
+	To find that navigate to Maven Dependency -> org.springframework.web.servlet -> org.springframework.web.servlet.view -> expand the package
+	we can see the class InternalResourceViewResolver.class copy the qualified name
+	
+	Add the bean tag and mention class name = paste the qualified name without .class extension we have to set 2 properties which is prefix and suffix
+	
+	
+	when we run this we are not getting the value we wanted, the value which is alien data and we wanted it to print. 
+	Welcome to the world is not working. If we go to the home controller, we can see we do have this alien object here
+	we are returning the result page and we do have the course model attribute which returns Java. So it should work.
+	Sometimes what happens is in your JSP because of some support JSTL might not work. So if we go back to alienresult page
+	we have to add one more attribute here, which is isELIgnored="false".
+
+-->
